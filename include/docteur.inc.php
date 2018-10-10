@@ -1,7 +1,7 @@
 <article class="doctor-thumbnail">
                 <img src="uploads/<?php echo $docteur["image"];?>" alt="<?php $docteur["prenom"] . " " . $docteur["nom"]; ?>">
                 <div class="doctor-details">
-                    <h4><?php $docteur["prenom"] . " " . $docteur["nom"] ?></h4>
+                    <h4><?php echo $docteur["prenom"] . " " . $docteur["nom"] ?></h4>
                     <p>
                         <?php foreach ($liste_specialites as $specialite): ?>
                         <?php echo $specialite["libelle"]?>
