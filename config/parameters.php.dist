@@ -5,5 +5,5 @@ $db_name = "salutem";
 $db_user = "root";
 $db_pass = "root";
 
-$site_url = "http://localhost:8888/salutem-lyt/";
+$site_url = "http://localhost:8888/salutem_lyt/";
 $site_admin = $site_url . "admin/";
