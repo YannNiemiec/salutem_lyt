@@ -7,15 +7,20 @@ $id = $_GET["id"];
 
 $docteur = getEntity("docteur", $id);
 
+$liste_specialites = getSpecialiteByDocteur($id);
+
 getHeader('Docteur' . ' ' . $docteur["prenom"] . ' ' . $docteur["nom"], 'Fiche du docteur' . ' ' . $docteur["prenom"] . ' ' . $docteur["nom"]);
 
 getMenu();
 ?>
 
 <div>
-<h1>Docteur <?php echo $docteur["prenom"] . " " . $docteur["nom"]; ?></h1>
+<h1 class='nom_docteur'>Docteur <?php echo $docteur["prenom"] . " " . $docteur["nom"]; ?></h1>
 
-<h2>Je suis spécialiste en </h2>
+<h2>Je suis
+<?php foreach($liste_specialites as $specialite):?>
+    <?php echo $specialite["libelle"];?>
+<?php endforeach;?></h2>
 
 <img src="uploads/<?php echo $docteur["image"];?>" alt="<?php $docteur["prenom"] . " " . $docteur["nom"]; ?>">
 

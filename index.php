@@ -94,6 +94,8 @@ $liste_docteurs = getAllEntities("docteur");
                 </form>
             </article>
            <?php foreach($liste_docteurs as $docteur):?>
+            <?php $id = $docteur["id"];?>
+            <?php $liste_specialites = getSpecialiteByDocteur($id);?>
             <?php include 'include/docteur.inc.php'; ?>
             <?php endforeach;?>
         </div>
