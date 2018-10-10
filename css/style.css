@@ -410,3 +410,11 @@ footer.main-footer table.opening-hours tr td.hours {
  .contact_docteur p:first-of-type {
      font-size: 1em; 
  }
+ 
+ /**
+    LISTE DOCTEURS
+ */
+ 
+ .liste_docteurs {
+     display: flex;
+ }
