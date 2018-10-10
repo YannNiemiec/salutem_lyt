@@ -1,10 +1,12 @@
 <?php
 require_once "functions.php";
 require_once "model/database.php";
-getHeader("Salutem - Maison médicale", "Page d'accueil de Salutem");
-getMenu();
 
 $liste_docteurs = getAllEntities("docteur");
+$infos = getEntity("contact", 1);
+        
+getHeader("Salutem - Maison médicale", "Page d'accueil de Salutem");
+getMenu();
 ?>
    
 
@@ -60,7 +62,7 @@ $liste_docteurs = getAllEntities("docteur");
                 <h3>Numéro d'urgence</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci assumenda aut delectus dolores illo laboriosam provident reiciendis tempore vel?</p>
                 <p>
-                    <a href="tel:0243785443" class="phone-number">0243785443</a>
+                    <a href="tel:<?php echo $infos["tel_urgence"]; ?>" class="phone-number"><?php echo $infos["tel_urgence"]; ?></a>
                 </p>
                 <a href="#" class="btn btn-light">Lire la suite</a>
             </article>

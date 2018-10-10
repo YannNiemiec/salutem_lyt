@@ -14,10 +14,9 @@ getHeader('Docteur' . ' ' . $docteur["prenom"] . ' ' . $docteur["nom"], 'Fiche d
 getMenu();
 ?>
 
-<div>
 <h1 class='nom_docteur'>Docteur <?php echo $docteur["prenom"] . " " . $docteur["nom"]; ?></h1>
 
-<h2>Je suis
+<h2 class='specialite_docteur'>Je suis
 <?php foreach($liste_specialites as $specialite):?>
     <?php echo $specialite["libelle"];?>
 <?php endforeach;?></h2>
@@ -25,7 +24,6 @@ getMenu();
 <img src="uploads/<?php echo $docteur["image"];?>" alt="<?php $docteur["prenom"] . " " . $docteur["nom"]; ?>">
 
 <p><?php echo $docteur["presentation"]; ?></p>
-</div>
 
 
 <p>N'hésitez pas à me contacter</p>
