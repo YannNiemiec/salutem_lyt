@@ -11,8 +11,8 @@
 
 <form action="create_query.php" method="POST">
     <div class="form-group">
-        <label>Titre</label>
-        <input type="texte" name="titre" class="form-control" placeholder="Titre" required>
+        <label>Spécialité</label>
+        <input type="texte" name="libelle" class="form-control" placeholder="Spécialité" required>
     </div>
     <button type="submit" class="btn btn-success">
         <i class="fa fa-check"></i>

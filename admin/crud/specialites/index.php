@@ -1,7 +1,7 @@
 <?php
 require_once '../../../model/database.php';
 
-$liste_tags = getAllEntities("tag");
+$liste_specialites = getAllEntities("specialite");
 $error_msg = null;
 
 if (isset($_GET['errcode'])) {
@@ -20,7 +20,7 @@ require_once '../../layout/header.php';
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Gestion des tags</h1>
+    <h1 class="h2">Gestion des spécialités</h1>
 </div>
 
 <a href="create.php" class="btn btn-success">
@@ -40,21 +40,21 @@ require_once '../../layout/header.php';
 <table class="table table-striped table-bordered">
     <thead class="thead-dark">
         <tr>
-            <th>Titre</th>
+            <th>Spécialité</th>
             <th class="actions">Actions</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($liste_tags AS $tag): ?>
+        <?php foreach ($liste_specialites AS $specialite): ?>
             <tr>
-                <td><?php echo $tag['titre'] ?></td>
+                <td><?php echo $specialite['libelle'] ?></td>
                 <td class="actions">
-                    <a href="update.php?id=<?php echo $tag['id'] ?>" class="btn btn-primary">
+                    <a href="update.php?id=<?php echo $specialite['id'] ?>" class="btn btn-primary">
                         <i class="fa fa-pencil"></i>
                         Modifier
                     </a>
                     <form action="delete.php" method="POST">
-                        <input type="hidden" name="id" value="<?php echo $tag["id"]?>">
+                        <input type="hidden" name="id" value="<?php echo $specialite["id"]?>">
                         <button type="submit" class="btn btn-danger">
                         <i class="fa fa-trash"></i>
                         Supprimer

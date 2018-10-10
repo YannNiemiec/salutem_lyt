@@ -10,27 +10,33 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo isActive("/crud/photo") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/photo/">
+                <a class="nav-link <?php echo isActive("/crud/formulaires") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/formulaires/">
                     <i class="fa fa-picture-o"></i>
-                    Photos
+                    Formulaires
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo isActive("/crud/categorie") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/categorie/">
-                    <i class="fa fa-book"></i>
-                    Catégories
+                <a class="nav-link <?php echo isActive("/crud/docteurs") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/docteurs/">
+                    <i class="fa fa-picture-o"></i>
+                    Docteurs
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo isActive("/crud/tag") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/tag/">
-                    <i class="fa fa-tags"></i>
-                    Tags
+                <a class="nav-link <?php echo isActive("/crud/specialités") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/specialites/">
+                    <i class="fa fa-picture-o"></i>
+                    Spécialités
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link <?php echo isActive("/crud/horaires") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/horaires/">
                     <i class="fa fa-comments"></i>
-                    Commentaires
+                    Horaires
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?php echo isActive("/crud/contacts") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/contacts/">
+                    <i class="fa fa-comments"></i>
+                    Contacts
                 </a>
             </li>
         </ul>

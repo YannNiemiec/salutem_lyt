@@ -2,8 +2,8 @@
 require_once '../../security.php';
 require_once '../../../model/database.php';
 
-$titre = $_POST["titre"];
+$libelle = $_POST["libelle"];
 
-insertCategorie($titre);
+insertSpecialite($libelle);
 
 header('Location: index.php');

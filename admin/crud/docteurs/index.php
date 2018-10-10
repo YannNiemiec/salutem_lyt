@@ -1,7 +1,7 @@
 <?php
 require_once '../../../model/database.php';
 
-$liste_photos = getAllPhotos();
+$liste_docteurs = getAllEntities("docteur");
 $error_msg = null;
 
 if (isset($_GET['errcode'])) {
@@ -20,7 +20,7 @@ require_once '../../layout/header.php';
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Gestion des photos</h1>
+    <h1 class="h2">Gestion des docteurs</h1>
 </div>
 
 <a href="create.php" class="btn btn-success">
@@ -40,22 +40,31 @@ require_once '../../layout/header.php';
 <table class="table table-striped table-bordered">
     <thead class="thead-dark">
         <tr>
-            <th>Titre</th>
+            <th>Nom</th>
+            <th>Prénom</th>
             <th>Image</th>
-            <th>Catégorie</th>
+            <th>Spécialité</th>
             <th class="actions">Actions</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($liste_photos AS $photo): ?>
+        <?php foreach ($liste_docteurs AS $docteur): ?>
+        <?php $id = $docteur["id"];
+              $liste_specialite = getSpecialiteByDocteur($id);
+        ?>
             <tr>
-                <td><?php echo $photo['titre'] ?></td>
+                <td><?php echo $docteur['nom'] ?></td>
+                <td><?php echo $docteur['prenom']?></td>
                 <td>
-                    <img src="../../../uploads/<?php echo $photo['image']?>" class="img-thumbnail">
+                    <img src="../../../uploads/<?php echo $docteur['image']?>" class="img-thumbnail">
                 </td>
-                <td><?php echo $photo['categorie']?></td>
+                <td>
+                    <?php foreach ($liste_specialite AS $specialite): ?>
+                        <?php echo $specialite["libelle"] ?>
+                    <?php endforeach; ?>
+                </td>
                 <td class="actions">
-                    <a href="update.php?id=<?php echo $photo['id']; ?>" class="btn btn-primary">
+                    <a href="update.php?id=<?php echo $docteur['id']; ?>" class="btn btn-primary">
                         <i class="fa fa-pencil"></i>
                         Modifier
                     </a>
