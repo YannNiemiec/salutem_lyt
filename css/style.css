@@ -371,4 +371,9 @@ footer.main-footer table.opening-hours tr td.hours {
     PAGE DOCTEUR
  */
  
- .nom_docteur 
+ .nom_docteur {
+   font-size: 3em;
+   text-align: center;
+ }
+ 
+ 

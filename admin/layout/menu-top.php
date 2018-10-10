@@ -5,7 +5,7 @@
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">laureanne.leneel@gmail.com</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="#"><i class="fa fa-user"></i>Mon profil</a>
-                <a class="dropdown-item" href="<?php echo $site_admin; ?> logout.php"><i class="fa fa-sign-out"></i>Déconnexion</a>
+                <a class="dropdown-item" href="<?php echo $site_admin; ?>logout.php"><i class="fa fa-sign-out"></i>Déconnexion</a>
             </div>
         </li>
     </ul>
