@@ -76,7 +76,7 @@ getMenu();
                 <form action="envoi_form.php" class="form-appointment" method="POST">
                     <h3>Prendre rendez-vous</h3>
                     <input type="text" name="nom" placeholder="Nom" required>
-                    <input type="text" name="prenom " placeholder="Prénom" required>
+                    <input type="text" name="prenom" placeholder="Prénom" required>
                     <input type="email" name="email" placeholder="Email">
                     <input type="tel" name="tel" placeholder="Téléphone" required>
                     <input type="date" name="date" placeholder="Date" required>

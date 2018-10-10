@@ -30,7 +30,7 @@ function insertFormulaire(string $nom, string $prenom, string $mail, string $tel
     $stmt->bindParam(':tel', $tel);
     $stmt->bindParam(':date_rdv', $date_rdv);
     $stmt->bindParam(':heure', $heure);
-    $stmt->bindParam(':mesage', $message);
+    $stmt->bindParam(':message', $message);
     $stmt->bindParam(':specialite_id', $specialite_id);
 
     $stmt->execute();
