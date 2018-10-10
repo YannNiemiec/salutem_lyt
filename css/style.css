@@ -374,6 +374,39 @@ footer.main-footer table.opening-hours tr td.hours {
  .nom_docteur {
    font-size: 3em;
    text-align: center;
+   font-weight: 400;
  }
  
+.specialite_docteur {
+     text-align: center;
+     font-weight: 100;
+     padding-bottom: 20px;
+ }
  
+ .img_docteur {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 20px;
+ }
+ 
+ .presentation_docteur {
+     text-align: center;
+     text-justify: justify;
+ }
+ 
+ .contact_docteur {
+     background-color: #F5F5F5;
+     padding: 15px;
+ }
+ 
+ .contact_docteur p {
+     text-align: center;
+     font-size: 0.8em;
+     margin-top: 5px;
+     margin-bottom: 5px;
+ }
+ 
+ .contact_docteur p:first-of-type {
+     font-size: 1em; 
+ }

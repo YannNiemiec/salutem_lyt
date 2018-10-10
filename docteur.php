@@ -21,13 +21,14 @@ getMenu();
     <?php echo $specialite["libelle"];?>
 <?php endforeach;?></h2>
 
-<img src="uploads/<?php echo $docteur["image"];?>" alt="<?php $docteur["prenom"] . " " . $docteur["nom"]; ?>">
+<img src="uploads/<?php echo $docteur["image"];?>" alt="<?php $docteur["prenom"] . " " . $docteur["nom"]; ?>" class='img_docteur'>
 
-<p><?php echo $docteur["presentation"]; ?></p>
+<p class='presentation_docteur'><?php echo $docteur["presentation"]; ?></p>
 
-
+<div class='contact_docteur'>
 <p>N'hésitez pas à me contacter</p>
 <p>Par téléphone : <a href="tel:0243785462"><?php echo $docteur["tel"]; ?></a></p>
 <p>Par mail : <a href="mailto:contact@salutem.fr"><?php echo $docteur["mail"]; ?></a></p>
+</div>
 
 <?php getFooter(); ?>
