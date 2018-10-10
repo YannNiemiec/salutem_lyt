@@ -3,7 +3,7 @@
                 <div class="doctor-details">
                     <h4><?php $docteur["prenom"] . " " . $docteur["nom"] ?></h4>
                     <p>Médecin Généraliste</p>
-                    <a href="#" class="btn btn-dark">
+                    <a href="docteur.php?id=<?php echo $docteur["id"]; ?>" class="btn btn-dark">
                         <i class="fa fa-eye"></i>
                         Plus d'informations
                     </a>

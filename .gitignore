@@ -4,4 +4,4 @@
 *.bak
 config/parameters.php
 nbproject/
-ulpoads/
+uploads/
