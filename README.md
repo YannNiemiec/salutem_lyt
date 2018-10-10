@@ -1,5 +1,10 @@
 # Salutem
 
+Membre du groupe : 
+    - Laure-Anne Le Néel
+    - Tristan Thoraval
+    - Yann Niemiec
+
 ## Instructions
 Rendre administrable le site statique Salutem :
 
