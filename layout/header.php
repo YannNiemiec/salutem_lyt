@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Salutem - Maison médicale</title>
+    <title><?php echo $title ?></title>
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/style.css">
