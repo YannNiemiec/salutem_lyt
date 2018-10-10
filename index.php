@@ -1,7 +1,10 @@
 <?php
 require_once "functions.php";
-getHeader("Salutem", "Page d'accueil de Salutem");
+require_once "model/database.php";
+getHeader("Salutem - Maison médicale", "Page d'accueil de Salutem");
 getMenu();
+
+$liste_docteurs = getAllEntities("docteur");
 ?>
    
 
@@ -90,39 +93,9 @@ getMenu();
                     </button>
                 </form>
             </article>
-            <article class="doctor-thumbnail">
-                <img src="uploads/doctor-1.jpg" alt="Jack Smith">
-                <div class="doctor-details">
-                    <h4>Jack Smith</h4>
-                    <p>Homéopathe / Ostéopathe</p>
-                    <a href="#" class="btn btn-dark">
-                        <i class="fa fa-eye"></i>
-                        Plus d'informations
-                    </a>
-                </div>
-            </article>
-            <article class="doctor-thumbnail">
-                <img src="uploads/doctor-2.jpg" alt="Norma Pedric">
-                <div class="doctor-details">
-                    <h4>Norma Pedric</h4>
-                    <p>Médecin Généraliste</p>
-                    <a href="#" class="btn btn-dark">
-                        <i class="fa fa-eye"></i>
-                        Plus d'informations
-                    </a>
-                </div>
-            </article>
-            <article class="doctor-thumbnail">
-                <img src="uploads/doctor-3.jpg" alt="Maria Martin">
-                <div class="doctor-details">
-                    <h4>Maria Martin</h4>
-                    <p>Dentiste</p>
-                    <a href="#" class="btn btn-dark">
-                        <i class="fa fa-eye"></i>
-                        Plus d'informations
-                    </a>
-                </div>
-            </article>
+           <?php foreach($liste_docteurs as $docteur):?>
+            <?php include 'include/docteur.inc.php'; ?>
+            <?php endforeach;?>
         </div>
     </section>
 
