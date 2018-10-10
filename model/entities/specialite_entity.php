@@ -17,3 +17,22 @@ function getSpecialiteByDocteur(int $id): array {
     return $stmt->fetchAll();
 }
 
+function insertSpecialite(string $libelle) {
+    global $connection;
+
+    $query = "INSERT INTO specialite (libelle) VALUES (:libelle)";
+
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(':libelle', $libelle);
+    $stmt->execute();
+}
+
+function updateSpecialite(int $id, string $libelle) {
+    global $connection;
+
+    $query = "UPDATE specialite SET libelle = :libelle WHERE id = :id";
+
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(':libelle', $libelle);
+    $stmt->execute();
+}
