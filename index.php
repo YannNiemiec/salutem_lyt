@@ -4,6 +4,7 @@ require_once "model/database.php";
 
 $liste_docteurs = getAllEntities("docteur");
 $infos = getEntity("contact", 1);
+$liste_specialite = getAllEntities("specialite");
         
 getHeader("Salutem - Maison médicale", "Page d'accueil de Salutem");
 getMenu();
@@ -72,23 +73,21 @@ getMenu();
     <section class="doctors">
         <div class="container">
             <article>
-                <form class="form-appointment">
+                <form action="envoi_form.php" class="form-appointment" method="POST">
                     <h3>Prendre rendez-vous</h3>
-                    <input type="text" required placeholder="Nom">
-                    <input type="text" required placeholder="Prénom">
-                    <input type="email" placeholder="Email">
-                    <input type="tel" required placeholder="Téléphone">
-                    <input type="date" required placeholder="Date">
-                    <input type="time" step="900" required placeholder="Heure">
-                    <select required >
+                    <input type="text" name="nom" placeholder="Nom" required>
+                    <input type="text" name="prenom " placeholder="Prénom" required>
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="tel" name="tel" placeholder="Téléphone" required>
+                    <input type="date" name="date" placeholder="Date" required>
+                    <input type="time" name="heure" step="900" placeholder="Heure" required>
+                    <select name="specialite_id" required >
                         <option disabled selected>Choisissez une spécialité</option>
-                        <option>Médecin Généraliste</option>
-                        <option>Dentiste</option>
-                        <option>Infirmier</option>
-                        <option>Homéopathe</option>
-                        <option>Osthéopathe</option>
+                        <?php foreach ($liste_specialite as $specialite) : ?>
+                        <option value="<?php echo $specialite["id"]?>"><?php echo $specialite["libelle"]?></option>
+                        <?php endforeach; ?>
                     </select>
-                    <textarea placeholder="Votre message"></textarea>
+                    <textarea name= "message" placeholder="Votre message"></textarea>
                     <button type="submit" class="btn btn-light">
                         <i class="fa fa-check"></i>
                         Envoyer
