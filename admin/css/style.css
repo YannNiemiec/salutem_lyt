@@ -1,0 +1,46 @@
+.navbar-nav .dropdown-menu {
+    position: absolute;
+    float: left;
+}
+
+td .img-thumbnail {
+    width: 75px;
+    max-height: 75px;
+}
+
+i.fa {
+    width: 16px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar-nav .dropdown-menu {
+        position: static;
+        float: none;
+    }
+
+}
+
+input.form-control {
+    width: auto;
+}
+
+.retour {
+    margin-bottom: 20px;
+}
+
+.supp {
+    margin-bottom: 20px;
+}
+
+th.actions {
+    width: 270px;
+}
+
+td.actions {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+}
