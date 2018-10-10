@@ -11,31 +11,31 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link <?php echo isActive("/crud/formulaires") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/formulaires/">
-                    <i class="fa fa-picture-o"></i>
-                    Formulaires
+                    <i class="fa fa-calendar"></i>
+                    Rendez-vous
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link <?php echo isActive("/crud/docteurs") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/docteurs/">
-                    <i class="fa fa-picture-o"></i>
+                    <i class="fa fa-user-md"></i>
                     Docteurs
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link <?php echo isActive("/crud/specialités") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/specialites/">
-                    <i class="fa fa-picture-o"></i>
+                    <i class="fa fa-star"></i>
                     Spécialités
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link <?php echo isActive("/crud/horaires") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/horaires/">
-                    <i class="fa fa-comments"></i>
+                    <i class="fa fa-hourglass-half"></i>
                     Horaires
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link <?php echo isActive("/crud/contacts") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/contacts/">
-                    <i class="fa fa-comments"></i>
+                    <i class="fa fa-info"></i>
                     Contacts
                 </a>
             </li>
