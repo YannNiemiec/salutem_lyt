@@ -2,6 +2,7 @@
 require_once "functions.php";
 require_once "model/database.php";
 $infos = getEntity("contact", 1);
+$liste_reseaux= getAllEntities("reseaux");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,9 +19,9 @@ $infos = getEntity("contact", 1);
             <div class="header-top">
                 <div class="container">
                     <div class="social-networks">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <?php foreach ($liste_reseaux as $reseau):?>
+                            <a href="#"><i class="fa fa-<?php echo $reseau["icone"]?>"></i></a>
+                        <?php endforeach;?>
                     </div>
                     <div class="contact-infos">
                         <ul>

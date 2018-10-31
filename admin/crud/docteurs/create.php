@@ -1,11 +1,10 @@
 <?php
 require_once '../../layout/header.php';
-$liste_categories = getAllEntities("categorie");
-$liste_tags = getAllEntities("tag");
+$liste_specialites = getAllEntities("specialite");
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Ajout d'une photo</h1>
+    <h1 class="h2">Ajout d'un docteur</h1>
 </div>
 
 <a href="index.php" class="btn btn-light">
@@ -15,30 +14,34 @@ $liste_tags = getAllEntities("tag");
 
 <form action="create_query.php" method="POST" enctype="multipart/form-data">
     <div class="form-group">
-        <label>Titre</label>
-        <input type="texte" name="titre" class="form-control" placeholder="Titre" required>
+        <label>Nom</label>
+        <input type="texte" name="nom" class="form-control" placeholder="Nom" required>
+    </div>
+    <div class="form-group">
+        <label>Prénom</label>
+        <input type="texte" name="prenom" class="form-control" placeholder="Prénom" required>
     </div>
     <div class="form-group">
         <label>Image</label>
         <input type="file" name="image" class="form-control" required>
     </div>
     <div class="form-group">
-        <label>Description</label>
-        <textarea name="description" class="form-control"></textarea>
+        <label>Présentation</label>
+        <textarea name="presentation" class="form-control"></textarea>
     </div>
     <div class="form-group">
-        <label>Catégorie</label>
-        <select name="categorie_id" class="form-control">
-            <?php foreach ($liste_categories as $categorie): ?>
-                <option value="<?php echo $categorie['id'] ?>"><?php echo $categorie['titre'] ?></option>
-            <?php endforeach; ?>
-        </select>
+        <label>Téléphone</label>
+        <input type="number" name="telephone" class="form-control" placeholder="Téléphone" required>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" placeholder="Email" required>
     </div>
     <div class="form-group" >
         <label>Tags</label>
-        <select name="tag_ids[]" multiple class="form-control">
-            <?php foreach ($liste_tags as $tag): ?>
-                <option value="<?php echo $tag["id"] ?>"><?php echo $tag["titre"] ?></option>
+        <select name="specialite_ids[]" multiple class="form-control">
+            <?php foreach ($liste_specialites as $specialite): ?>
+                <option value="<?php echo $specialite["id"] ?>"><?php echo $specialite["libelle"] ?></option>
             <?php endforeach ?>
         </select>
     </div>
