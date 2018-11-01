@@ -3,6 +3,8 @@ require_once "functions.php";
 require_once "model/database.php";
 $infos = getEntity("contact", 1);
 $liste_reseaux= getAllEntities("reseaux");
+$jour = date("N");
+$heure = date("G");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -44,7 +46,17 @@ $liste_reseaux= getAllEntities("reseaux");
                         Salutem
                     </div>
                     <div class="status">
-                        Votre centre est actuellement <span class="open">ouvert</span>
+                        Votre centre est actuellement 
+                        <?php if($jour<6 AND $jour>0 AND $heure<17 AND $heure>9) {
+                            echo '<span class="open">ouvert</span>';
+                        } elseif ($jour>5 AND $jour<7 AND $heure>9 AND $heure<12) {
+                            echo '<span class="open">ouvert</span>';
+                    } else {
+                        echo '<span class="close">fermé</span>';
+                    }
+?>
+                        
+                   
                     </div>
                 </div>
             </div>
