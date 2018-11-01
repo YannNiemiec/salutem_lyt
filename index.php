@@ -5,11 +5,13 @@ require_once "model/database.php";
 $liste_docteurs = getAllEntities("docteur");
 $infos = getEntity("contact", 1);
 $liste_specialite = getAllEntities("specialite");
-        
+$liste_horaires = getAllHoraires();
+$today = date("N");
+
 getHeader("Salutem - Maison médicale", "Page d'accueil de Salutem");
 getMenu();
 ?>
-   
+
 
 <main>
     <section class="home-top">
@@ -29,34 +31,23 @@ getMenu();
             <article>
                 <h3>Horaires d'ouverture</h3>
                 <table class="opening-hours">
-                    <tr>
-                        <td>Lundi</td>
-                        <td class="hours">9h - 17h</td>
-                    </tr>
-                    <tr class="today">
-                        <td>Mardi</td>
-                        <td class="hours">9h - 17h</td>
-                    </tr>
-                    <tr>
-                        <td>Mercredi</td>
-                        <td class="hours">9h - 17h</td>
-                    </tr>
-                    <tr>
-                        <td>Jeudi</td>
-                        <td class="hours">9h - 17h</td>
-                    </tr>
-                    <tr>
-                        <td>Vendredi</td>
-                        <td class="hours">9h - 17h</td>
-                    </tr>
-                    <tr>
-                        <td>Samedi</td>
-                        <td class="hours">9h - 12h</td>
-                    </tr>
-                    <tr>
-                        <td>Dimanche</td>
-                        <td class="hours">Fermé</td>
-                    </tr>
+                    <?php foreach ($liste_horaires as $horaire): ?>
+                        <tr <?php
+                        if ($today == $horaire["numero_jour"])
+                            echo 'class="today"'
+                            ?>>
+                            <td><?php echo $horaire["jour"] ?></td>
+                            <td class = "hours">
+                                <?php
+                                if (empty($horaire["debut_format"])) {
+                                    echo 'Fermé';
+                                } else {
+                                    echo $horaire["debut_format"] . 'h - ' . $horaire["fin_format"] . 'h';
+                                }
+                                ?></td>
+                        </tr>
+
+<?php endforeach; ?>
                 </table>
             </article>
             <article>
@@ -84,8 +75,8 @@ getMenu();
                     <select name="specialite_id" required >
                         <option disabled selected>Choisissez une spécialité</option>
                         <?php foreach ($liste_specialite as $specialite) : ?>
-                        <option value="<?php echo $specialite["id"]?>"><?php echo $specialite["libelle"]?></option>
-                        <?php endforeach; ?>
+                            <option value="<?php echo $specialite["id"] ?>"><?php echo $specialite["libelle"] ?></option>
+<?php endforeach; ?>
                     </select>
                     <textarea name= "message" placeholder="Votre message"></textarea>
                     <button type="submit" class="btn btn-light">
@@ -94,11 +85,11 @@ getMenu();
                     </button>
                 </form>
             </article>
-           <?php foreach($liste_docteurs as $docteur):?>
-            <?php $id = $docteur["id"];?>
-            <?php $liste_specialites = getSpecialiteByDocteur($id);?>
-            <?php include 'include/docteur.inc.php'; ?>
-            <?php endforeach;?>
+            <?php foreach ($liste_docteurs as $docteur): ?>
+                <?php $id = $docteur["id"]; ?>
+                <?php $liste_specialites = getSpecialiteByDocteur($id); ?>
+                <?php include 'include/docteur.inc.php'; ?>
+<?php endforeach; ?>
         </div>
     </section>
 

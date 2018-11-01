@@ -1,3 +1,10 @@
+<?php
+require_once "functions.php";
+require_once "model/database.php";
+$infos = getEntity("contact", 1);
+$liste_horaires = getAllHoraires();
+$today = date("N");
+?>
 
 <footer class="main-footer">
     <section class="container">
@@ -13,49 +20,37 @@
             <ul class="contact-infos">
                 <li>
                     <i class="fa fa-envelope"></i>
-                    <a href="mailto:contact@salutem.fr">contact@salutem.fr</a>
+                    <a href="mailto:<?php echo $infos["mail"];?>"><?php echo $infos["mail"];?></a>
                 </li>
                 <li>
                     <i class="fa fa-phone"></i>
-                    <a href="tel:0243785462">0243785462</a>
+                    <a href="tel:<?php echo $infos["tel"]; ?>"><?php echo $infos["tel"]; ?></a>
                 </li>
                 <li>
                     <i class="fa fa-ambulance"></i>
-                    <a href="tel:0243785443">0243785443</a>
+                    <a href="tel:<?php echo $infos["tel_urgence"]; ?>"><?php echo $infos["tel_urgence"]; ?></a>
                 </li>
             </ul>
         </article>
         <article>
             <h3>Horaires d'ouverture</h3>
             <table class="opening-hours">
-                <tr>
-                    <td>Lundi</td>
-                    <td class="hours">9h - 17h</td>
-                </tr>
-                <tr class="today">
-                    <td>Mardi</td>
-                    <td class="hours">9h - 17h</td>
-                </tr>
-                <tr>
-                    <td>Mercredi</td>
-                    <td class="hours">9h - 17h</td>
-                </tr>
-                <tr>
-                    <td>Jeudi</td>
-                    <td class="hours">9h - 17h</td>
-                </tr>
-                <tr>
-                    <td>Vendredi</td>
-                    <td class="hours">9h - 17h</td>
-                </tr>
-                <tr>
-                    <td>Samedi</td>
-                    <td class="hours">9h - 12h</td>
-                </tr>
-                <tr>
-                    <td>Dimanche</td>
-                    <td class="hours">Fermé</td>
-                </tr>
+                <?php foreach ($liste_horaires as $horaire): ?>
+                        <tr <?php
+                        if ($today == $horaire["numero_jour"])
+                            echo 'class="today"'
+                            ?>>
+                            <td><?php echo $horaire["jour"] ?></td>
+                            <td class = "hours">
+                                <?php
+                                if (empty($horaire["debut_format"])) {
+                                    echo 'Fermé';
+                                } else {
+                                    echo $horaire["debut_format"] . 'h - ' . $horaire["fin_format"] . 'h';
+                                }
+                                ?></td>
+                        </tr>
+<?php endforeach; ?>
             </table>
         </article>
     </section>
