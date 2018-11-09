@@ -1,29 +1,28 @@
 <?php
 require_once '../../../model/database.php';
 
-$liste_specialites = getAllEntities("specialite");
+$liste_reseaux = getAllEntities("reseaux");
 
 require_once '../../layout/header.php';
 
 $id = $_GET["id"];
-$specialite = getEntity("specialite", $id)
+$reseau = getEntity("reseaux", $id)
 ?>
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Modifier une catégorie</h1>
+    <h1 class="h2">Modifier un contact</h1>
 </div>
 
 <a href="index.php" class="btn btn-light retour">
     <i class="fa fa-arrow-left"></i>
     Retour
 </a>
-
-<form action="udpate_query.php?id=<?php echo $specialite["id"]?>" method="POST">
+<form action="udpate_query.php?id=<?php echo $reseau["id"]?>" method="POST">
     <div class="form-group">
-        <label>Specialité</label>
-        <input type="texte" name="libelle" class="form-control" value="<?php echo $specialite['libelle'];?>" placeholder="specialité" required>
+        <label>Lien</label>
+        <input type="texte" name="lien" class="form-control" value="<?php echo $reseau['lien'];?>" placeholder="Lien" required>
     </div>
     <input type="hidden" name="id" value="<?php echo $id;?>">
-    <button type="submit" class="btn btn-success">
+    <button type="submit" class="btn btn-primary">
         <i class="fa fa-pencil"></i>
         Modifier
     </button>

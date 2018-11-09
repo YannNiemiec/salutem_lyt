@@ -1,7 +1,7 @@
 <?php
 require_once '../../../model/database.php';
 
-$liste_categories = getAllEntities("categorie");
+$liste_docteurs = getAllEntities("docteur");
 
 require_once '../../layout/header.php';
 
@@ -45,9 +45,9 @@ foreach ($photo_liste_tags as $tag) {
     <div class="form-group">
         <label>Catégorie</label>
         <select name="categorie_id" class="form-control">
-            <?php foreach ($liste_categories as $categorie): ?>
-            <?php $selected = ($categorie["id"] == $photo["categorie_id"]) ? "selected" : "";?> 
-                <option value="<?php echo $categorie['id'] ?>"<?php echo $selected?>><?php echo $categorie['titre'];?></option>
+            <?php foreach ($liste_docteurs as $docteur): ?>
+            <?php $selected = ($docteur["id"] == $photo["categorie_id"]) ? "selected" : "";?> 
+                <option value="<?php echo $docteur['id'] ?>"<?php echo $selected?>><?php echo $docteur['titre'];?></option>
             <?php endforeach; ?>
         </select>
     </div>

@@ -20,6 +20,6 @@ $filename = $photo["image"];
     
 };
 
-updatePhoto($titre, $filename, $description, $categorie_id, $id, $tag_ids);
+updateDocteur($titre, $filename, $description, $categorie_id, $id, $tag_ids);
 
 header('Location: index.php');

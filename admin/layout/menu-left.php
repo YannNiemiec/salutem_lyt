@@ -34,6 +34,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link <?php echo isActive("/crud/reseaux") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/reseaux/">
+                    <i class="fa fa-hand-peace-o"></i>
+                    Réseaux
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link <?php echo isActive("/crud/contacts") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/contacts/">
                     <i class="fa fa-info"></i>
                     Contacts

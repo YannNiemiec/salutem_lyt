@@ -33,6 +33,7 @@ function updateSpecialite(int $id, string $libelle) {
     $query = "UPDATE specialite SET libelle = :libelle WHERE id = :id";
 
     $stmt = $connection->prepare($query);
+    $stmt->bindParam(':id', $id);
     $stmt->bindParam(':libelle', $libelle);
     $stmt->execute();
 }

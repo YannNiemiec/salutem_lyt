@@ -2,9 +2,9 @@
 require_once '../../security.php';
 require_once '../../../model/database.php';
 
-$libelle = $_POST["libelle"];
+$lien = $_POST["lien"];
 $id = $_POST["id"];
 
-updateSpecialite($libelle, $id);
+updateReseau($id, $lien);
 
 header('Location: index.php');
