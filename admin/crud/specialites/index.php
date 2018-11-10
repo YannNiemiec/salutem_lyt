@@ -58,7 +58,6 @@ require_once '../../layout/header.php';
                         <button type="submit" class="btn btn-danger">
                         <i class="fa fa-trash"></i>
                         Supprimer
-                    </a>
                     </form>
                 </td>
             </tr>

@@ -38,7 +38,7 @@ function getEntity(string $table, int $id): array {
 function getAllEntities(string $table): array {
     global $connection;
 
-    $query = "SELECT * FROM $table ";
+    $query = "SELECT * FROM $table";
 
     $stmt = $connection->prepare($query);
     $stmt->execute();
@@ -48,11 +48,11 @@ function getAllEntities(string $table): array {
 
 function deleteEntity(int $id, string $table): ?Exception {
     global $connection;
-    
+
     $query = "DELETE FROM $table WHERE id = :id";
-    
+
     $stmt = $connection->prepare($query);
-    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(":id", $id);
     try {
         $stmt->execute();
     } catch (PDOException $ex) {

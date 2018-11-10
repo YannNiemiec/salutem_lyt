@@ -69,11 +69,10 @@ require_once '../../layout/header.php';
                         Modifier
                     </a>
                     <form action="delete.php" method="POST">
-                        <input type="hidden" name="id" value="<?php echo $photo["id"]?>">
+                        <input type="hidden" name="id" value="<?php echo $docteur["id"]?>">
                         <button type="submit" class="btn btn-danger">
                         <i class="fa fa-trash"></i>
                         Supprimer
-                    </a>
                     </form>
                 </td>
             </tr>

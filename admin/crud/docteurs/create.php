@@ -38,7 +38,7 @@ $liste_specialites = getAllEntities("specialite");
         <input type="email" name="email" class="form-control" placeholder="Email" required>
     </div>
     <div class="form-group" >
-        <label>Tags</label>
+        <label>Spécialité</label>
         <select name="specialite_ids[]" multiple class="form-control">
             <?php foreach ($liste_specialites as $specialite): ?>
                 <option value="<?php echo $specialite["id"] ?>"><?php echo $specialite["libelle"] ?></option>

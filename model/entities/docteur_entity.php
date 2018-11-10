@@ -33,7 +33,7 @@ function insertDocteurHasSpecialite(int $docteur_id, int $specialite_id) {
 }
 
 
-function updateDocteur(int $id, string $nom, string $prenom, string $image, string $presentation, string $tel, string $mail) {
+function updateDocteur(int $id, string $nom, string $prenom, string $image, string $presentation, string $tel, string $mail, array $specialite_ids) {
     global $connection;
 
     $query = "UPDATE docteur SET nom = :nom, prenom = :prenom, image = :image, presentation = :presentation, tel = :tel, mail = :mail WHERE id = :id";
@@ -48,4 +48,22 @@ function updateDocteur(int $id, string $nom, string $prenom, string $image, stri
     $stmt->bindParam(':tel', $tel);
     $stmt->bindParam(':mail', $mail);
     $stmt->execute();
+    
+    deleteDocteurHasSpecialite($id);
+    
+    foreach ($specialite_ids as $specialite_id) {
+        insertDocteurHasSpecialite($id, $specialite_id);
+    }
 }
+
+function deleteDocteurHasSpecialite(int $docteur_id) {
+    /* @var $connection PDO */
+    global $connection;
+    
+    $query = "DELETE FROM docteur_has_specialite WHERE docteur_id = :docteur_id";
+    
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(":docteur_id", $docteur_id);
+    $stmt->execute();
+}
+

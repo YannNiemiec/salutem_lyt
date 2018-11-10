@@ -22,6 +22,7 @@ function updateHoraires(int $id, string $debut, string $fin) {
     $query = "UPDATE horaire SET debut = :debut, fin = :fin  WHERE id = :id";
 
     $stmt = $connection->prepare($query);
+    $stmt->bindParam(":id", $id);
     $stmt->bindParam(":debut", $debut);
     $stmt->bindParam(":fin", $fin);
     $stmt->execute();

@@ -6,6 +6,6 @@ $debut = $_POST["debut"];
 $fin = $_POST["fin"];
 $id = $_POST["id"];
 
-updateHoraires($debut, $fin, $id);
+updateHoraires($id, $debut, $fin);
 
 header('Location: index.php');
