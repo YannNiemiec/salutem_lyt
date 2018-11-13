@@ -1,5 +1,20 @@
 <?php
 
+function getAllDocteursBySpecialite ($id) {
+    global $connection;
+    
+    $query = "SELECT docteur.id, docteur.nom FROM docteur
+            INNER JOIN docteur_has_specialite ON docteur_has_specialite.specialite_id = specialite.id
+            WHERE docteur_has_specialite.specialite_id = :id;";
+    
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    
+    return $stmt->fetchAll();
+
+}
+
 function insertDocteur(string $nom, string $prenom, string $image, string $presentation, string $tel, string $mail, array $specialite_ids) {
     global $connection;
 

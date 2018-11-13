@@ -10,7 +10,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo isActive("/crud/formulaires") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/formulaires/">
+                <a class="nav-link <?php echo isActive("/crud/rendez-vous") ? 'active' : ''; ?>" href="<?php echo $site_admin; ?>crud/rendez-vous/">
                     <i class="fa fa-calendar"></i>
                     Rendez-vous
                 </a>

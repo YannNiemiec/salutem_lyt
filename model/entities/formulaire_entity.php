@@ -1,18 +1,27 @@
 <?php
 
-function getAllCommentairesByPhoto(int $id): array {
+function getAllFormulaires(): array {
     global $connection;
 
     $query = "SELECT
-                id,
-                contenu,
-                date_creation
-            FROM commentaire
-            WHERE photo_id = :id
-            ORDER BY date_creation;";
+                formulaire.id,
+                formulaire.nom,
+                formulaire.prenom,
+                formulaire.mail,
+                formulaire.tel,
+                DATE_FORMAT(formulaire.date_rdv, '%e %M %Y') AS 'date_rdv_format',
+                DATE_FORMAT(formulaire.heure, '%H:%i') AS 'heure_format',
+                formulaire.message,
+                specialite_id,
+                specialite.libelle AS specialite,
+                docteur_id,
+                docteur.nom AS docteur
+                FROM formulaire
+                 INNER JOIN specialite ON specialite.id = formulaire.specialite_id
+                 LEFT JOIN docteur ON docteur.id = formulaire.docteur_id
+            ORDER BY date_rdv DESC;";
 
     $stmt = $connection->prepare($query);
-    $stmt->bindParam(':id', $id);
     $stmt->execute();
 
     return $stmt->fetchAll();
@@ -32,6 +41,19 @@ function insertFormulaire(string $nom, string $prenom, string $mail, string $tel
     $stmt->bindParam(':heure', $heure);
     $stmt->bindParam(':message', $message);
     $stmt->bindParam(':specialite_id', $specialite_id);
+
+    $stmt->execute();
+}
+
+
+function UpdateDocteurInFormulaire(string $docteur, int $id) {
+    global $connection;
+
+    $query = "UPDATE formulaire SET docteur_id = :docteur WHERE id = :id";
+
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(':docteur', $docteur);
+    $stmt->bindParam(':id', $id);
 
     $stmt->execute();
 }
